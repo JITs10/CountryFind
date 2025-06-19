@@ -1,0 +1,268 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --background-color: white;
+  --text-color: black;
+  --elements-color: white;
+  margin: 0;
+  font-family: Nunito, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  --background-color: hsl(207, 26%, 17%);
+  --text-color: white;
+  --elements-color: hsl(209, 23%, 22%);
+}
+
+main {
+  padding: 24px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:focus,
+button:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.header-container {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-inline: 24px;
+  background-color: var(--elements-color);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.title {
+  font-weight: 800;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-color, #333); /* Optional: Use theme variable if available */
+  text-align: center;
+}
+
+
+.theme-changer {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.countries-container {
+  max-width: 1200px;
+  margin: 16px auto 0;
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.country-card {
+  width: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 24px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  background-color: var(--elements-color);
+}
+
+.country-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 24px;
+  margin-block: 16px;
+}
+
+.card-text {
+  padding-inline: 16px;
+}
+
+.card-text p {
+  margin-block: 8px;
+}
+
+.country-card img {
+  width: 100%;
+}
+
+.search-filter-container {
+  max-width: 1200px;
+  margin: 16px auto 48px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.search-container {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  max-width: 350px;
+  width: 100%;
+  border-radius: 4px;
+  padding-left: 24px;
+  background-color: var(--elements-color);
+  color: var(--text-color);
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  padding: 16px;
+  width: 90%;
+  background-color: inherit;
+  color: inherit;
+}
+
+.search-container input::placeholder {
+  color: #999;
+}
+
+.filter-by-region {
+  width: 250px;
+  padding: 16px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background-color: var(--elements-color);
+  color: var(--text-color);
+}
+
+.country-details-container {
+  max-width: 1200px;
+  margin: 32px auto 0;
+}
+
+.flag-image-wrapper {
+  width: 60%;
+}
+
+
+.flag-image-wrapper img {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.back-button {
+  padding: 6px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--elements-color);
+  color: var(--text-color);
+}
+
+.country-details {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  margin-top: 64px;
+}
+
+.country-details img {
+  width: 40%;
+  border: 1px solid #ddd;
+}
+
+.details-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  column-gap: 64px;
+  flex-wrap: wrap;
+}
+
+.details-text p {
+  margin: 0;
+}
+
+.border-countries {
+  margin-top: 48px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.border-countries a {
+    margin: 2px;
+  padding: 4px 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: var(--elements-color);
+  color: var(--text-color);
+  display: inline-block;
+}
+
+.border-countries a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark .border-countries a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 940px) {
+  .country-details {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 32px;
+    gap: 16px;
+  }
+
+  .details-text {
+    max-height: unset;
+  }
+
+  .country-details img {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .countries-container {
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .header-content p {
+    font-size: 12px;
+  }
+
+  .search-filter-container {
+    flex-direction: column;
+  }
+}
